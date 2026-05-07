@@ -1,0 +1,411 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020510"/>
+      <stop offset="50%" stop-color="#060d1f"/>
+      <stop offset="100%" stop-color="#030812"/>
+    </linearGradient>
+
+    <linearGradient id="infGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#06b6d4"/>
+      <stop offset="40%"  stop-color="#3b82f6"/>
+      <stop offset="70%"  stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <linearGradient id="cometTrail" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="1"/>
+    </linearGradient>
+
+    <radialGradient id="devOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="opsOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#8b5cf6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="cardDocker" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0e7490" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="cardK8s" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="cardAWS" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="cardCICD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#6d28d9" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <pattern id="scanlines" width="1" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="1200" y2="0" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.03"/>
+    </pattern>
+
+    <pattern id="gridPat" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#1e3a5f" stroke-width="0.5" stroke-opacity="0.2"/>
+    </pattern>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowStrong" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowSoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <marker id="pipeHead" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M1 1L6 4L1 7" fill="none" stroke="#475569" stroke-width="1.2" stroke-linecap="round"/>
+    </marker>
+
+  </defs>
+
+  <style>
+    .bg     { fill: url(#bg); }
+    .gridBg { fill: url(#gridPat); opacity: 0.6; }
+    .scanBg { fill: url(#scanlines); }
+
+    .star { fill: white; }
+    .starBlink  { animation: blink 3s ease-in-out infinite alternate; }
+    .starBlink2 { animation: blink 5s ease-in-out infinite alternate; animation-delay: 1s; }
+    .starBlink3 { animation: blink 4s ease-in-out infinite alternate; animation-delay: 2s; }
+
+    .infGlow {
+      fill: none; stroke: #3b82f6;
+      stroke-width: 52; stroke-opacity: 0.08;
+      filter: url(#glowStrong);
+    }
+    .infGlow2 {
+      fill: none; stroke: url(#infGrad);
+      stroke-width: 28; stroke-opacity: 0.18;
+      filter: url(#glowStrong);
+    }
+    .infMain {
+      fill: none; stroke: url(#infGrad);
+      stroke-width: 5; stroke-linecap: round;
+      stroke-dasharray: 18 10;
+      animation: flowDash 1.6s linear infinite;
+      filter: url(#glow);
+    }
+    .infEdge {
+      fill: none; stroke: url(#infGrad);
+      stroke-width: 1.5; stroke-linecap: round; stroke-opacity: 0.4;
+    }
+
+    .devOrb  { fill: url(#devOrb); }
+    .opsOrb  { fill: url(#opsOrb); }
+    .orbPulse  { animation: orbPulse 3s ease-in-out infinite; }
+    .orbPulse2 { animation: orbPulse 3s ease-in-out infinite; animation-delay: 1.5s; }
+
+    .dot1 { fill: #fff;     filter: url(#glow); }
+    .dot2 { fill: #06b6d4; filter: url(#glow); }
+    .dot3 { fill: #8b5cf6; filter: url(#glow); }
+
+    .labelDEV {
+      fill: white; font-size: 72px; font-family: 'Courier New', monospace;
+      font-weight: 900; letter-spacing: 6px;
+      filter: url(#textGlow);
+    }
+    .labelOPS {
+      fill: white; font-size: 72px; font-family: 'Courier New', monospace;
+      font-weight: 900; letter-spacing: 6px;
+      filter: url(#textGlow);
+    }
+    .sublabel {
+      font-size: 10px; font-family: 'Courier New', monospace;
+      letter-spacing: 4px; fill-opacity: 0.55;
+    }
+    .headline {
+      fill: #e2e8f0; font-size: 13px;
+      font-family: 'Courier New', monospace; letter-spacing: 8px;
+    }
+    .tagline {
+      fill: #475569; font-size: 11px;
+      font-family: 'Courier New', monospace; letter-spacing: 4px;
+    }
+
+    .cardTitle {
+      font-size: 11px; font-family: 'Courier New', monospace;
+      font-weight: bold; letter-spacing: 2px;
+    }
+    .cardSub {
+      font-size: 9px; font-family: 'Courier New', monospace;
+      fill: #64748b; letter-spacing: 1px;
+    }
+    .cardFloat  { animation: float  4.0s ease-in-out infinite; }
+    .cardFloat2 { animation: float2 5.0s ease-in-out infinite; }
+    .cardFloat3 { animation: float3 4.5s ease-in-out infinite; }
+    .cardFloat4 { animation: float4 5.5s ease-in-out infinite; }
+
+    .barDocker { fill: #06b6d4; animation: barLoad 2.0s ease-out forwards, barPulse 2s ease-in-out 2.0s infinite; }
+    .barK8s    { fill: #3b82f6; animation: barLoad 1.8s ease-out 0.3s forwards, barPulse 2s ease-in-out 2.3s infinite; }
+    .barAWS    { fill: #f59e0b; animation: barLoad 2.2s ease-out 0.6s forwards, barPulse 2s ease-in-out 2.6s infinite; }
+    .barCICD   { fill: #8b5cf6; animation: barLoad 1.6s ease-out 0.9s forwards, barPulse 2s ease-in-out 2.9s infinite; }
+
+    .statusOnline { fill: #22c55e; animation: statusPulse 1.5s ease-in-out infinite; }
+    .statusWarn   { fill: #f59e0b; animation: statusPulse 2.0s ease-in-out infinite; }
+
+    .orbitRing {
+      fill: none; stroke: #3b82f6; stroke-width: 0.6;
+      stroke-dasharray: 4 6; stroke-opacity: 0.25;
+      animation: spinOrbit 20s linear infinite;
+      transform-origin: 600px 295px;
+    }
+    .orbitRing2 {
+      fill: none; stroke: #8b5cf6; stroke-width: 0.5;
+      stroke-dasharray: 3 8; stroke-opacity: 0.18;
+      animation: spinOrbit 28s linear infinite reverse;
+      transform-origin: 600px 295px;
+    }
+
+    .pipeStep  { rx: 7; }
+    .pipeLabel {
+      font-size: 8px; font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+    }
+    .pipeArrow { stroke: #475569; stroke-width: 1; fill: none; }
+
+    .pipeActive  { animation: pipeActivate 4s ease-in-out 0.0s infinite; }
+    .pipeActive2 { animation: pipeActivate 4s ease-in-out 0.7s infinite; }
+    .pipeActive3 { animation: pipeActivate 4s ease-in-out 1.4s infinite; }
+    .pipeActive4 { animation: pipeActivate 4s ease-in-out 2.1s infinite; }
+    .pipeActive5 { animation: pipeActivate 4s ease-in-out 2.8s infinite; }
+    .pipeActive6 { animation: pipeActivate 4s ease-in-out 3.5s infinite; }
+
+    .corner { fill: none; stroke-width: 1.5; stroke-linecap: round; }
+
+    @keyframes flowDash {
+      to { stroke-dashoffset: -56; }
+    }
+    @keyframes blink {
+      from { opacity: 0.15; } to { opacity: 0.9; }
+    }
+    @keyframes float  { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-10px)} }
+    @keyframes float2 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-8px)}  }
+    @keyframes float3 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-12px)} }
+    @keyframes float4 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-7px)}  }
+    @keyframes orbPulse {
+      0%,100%{transform:scale(1);   opacity:1}
+      50%    {transform:scale(1.15);opacity:0.75}
+    }
+    @keyframes barLoad {
+      from { transform:scaleX(0); transform-origin:left; }
+      to   { transform:scaleX(1); transform-origin:left; }
+    }
+    @keyframes barPulse {
+      0%,100%{opacity:1} 50%{opacity:0.65}
+    }
+    @keyframes statusPulse {
+      0%,100%{r:4;   opacity:1}
+      50%    {r:5.5; opacity:0.6}
+    }
+    @keyframes spinOrbit {
+      from { transform:rotate(0deg); }
+      to   { transform:rotate(360deg); }
+    }
+    @keyframes pipeActivate {
+      0%,15% { fill-opacity:0.9; stroke-opacity:1;   }
+      40%,100%{ fill-opacity:0.15; stroke-opacity:0.3; }
+    }
+  </style>
+
+  <!-- BACKGROUND -->
+  <rect width="1200" height="600" class="bg"/>
+  <rect width="1200" height="600" class="gridBg"/>
+  <rect width="1200" height="600" class="scanBg"/>
+
+  <!-- Moving scan line -->
+  <rect x="0" y="-4" width="1200" height="3" fill="white" fill-opacity="0.03">
+    <animateTransform attributeName="transform" type="translate" from="0,0" to="0,610" dur="6s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- STARS -->
+  <circle cx="80"   cy="50"  r="1.5" class="star starBlink"/>
+  <circle cx="150"  cy="30"  r="1"   class="star starBlink2"/>
+  <circle cx="240"  cy="55"  r="2"   class="star starBlink3"/>
+  <circle cx="320"  cy="22"  r="1"   class="star starBlink"/>
+  <circle cx="480"  cy="40"  r="1.5" class="star starBlink2"/>
+  <circle cx="560"  cy="18"  r="1"   class="star starBlink3"/>
+  <circle cx="700"  cy="35"  r="2"   class="star starBlink"/>
+  <circle cx="820"  cy="25"  r="1"   class="star starBlink2"/>
+  <circle cx="940"  cy="48"  r="1.5" class="star starBlink3"/>
+  <circle cx="1060" cy="30"  r="1"   class="star starBlink"/>
+  <circle cx="1140" cy="55"  r="2"   class="star starBlink2"/>
+  <circle cx="1180" cy="15"  r="1"   class="star starBlink3"/>
+  <circle cx="60"   cy="480" r="1.5" class="star starBlink2"/>
+  <circle cx="200"  cy="510" r="1"   class="star starBlink3"/>
+  <circle cx="350"  cy="545" r="1.5" class="star starBlink"/>
+  <circle cx="1000" cy="520" r="1"   class="star starBlink2"/>
+  <circle cx="1100" cy="490" r="2"   class="star starBlink3"/>
+
+  <!-- ORBIT RINGS -->
+  <ellipse cx="600" cy="295" rx="310" ry="180" class="orbitRing"/>
+  <ellipse cx="600" cy="295" rx="380" ry="220" class="orbitRing2"/>
+
+  <path id="orbitPath1" d="M 910 295 A 310 180 0 1 1 909.9 295" fill="none"/>
+  <path id="orbitPath2" d="M 980 295 A 380 220 0 1 0 979.9 295" fill="none"/>
+
+  <circle r="4" fill="#06b6d4" fill-opacity="0.7" filter="url(#glowSoft)">
+    <animateMotion dur="20s" repeatCount="indefinite"><mpath href="#orbitPath1"/></animateMotion>
+  </circle>
+  <circle r="3" fill="#8b5cf6" fill-opacity="0.7" filter="url(#glowSoft)">
+    <animateMotion dur="28s" repeatCount="indefinite"><mpath href="#orbitPath2"/></animateMotion>
+  </circle>
+
+  <!-- INFINITY LOOP -->
+  <path class="infGlow"
+    d="M 320 295 C 320 145,500 145,600 295 C 700 445,880 445,880 295 C 880 145,700 145,600 295 C 500 445,320 445,320 295"/>
+  <path class="infGlow2"
+    d="M 320 295 C 320 145,500 145,600 295 C 700 445,880 445,880 295 C 880 145,700 145,600 295 C 500 445,320 445,320 295"/>
+
+  <ellipse cx="450" cy="295" rx="130" ry="130" class="devOrb orbPulse"/>
+  <ellipse cx="750" cy="295" rx="130" ry="130" class="opsOrb orbPulse2"/>
+
+  <path class="infEdge"
+    d="M 320 295 C 320 145,500 145,600 295 C 700 445,880 445,880 295 C 880 145,700 145,600 295 C 500 445,320 445,320 295"/>
+  <path class="infMain"
+    d="M 320 295 C 320 145,500 145,600 295 C 700 445,880 445,880 295 C 880 145,700 145,600 295 C 500 445,320 445,320 295"/>
+
+  <!-- PARTICLES -->
+  <circle r="8" class="dot1">
+    <animateMotion dur="4s" repeatCount="indefinite" rotate="auto"
+      path="M 320 295 C 320 145,500 145,600 295 C 700 445,880 445,880 295 C 880 145,700 145,600 295 C 500 445,320 445,320 295"/>
+  </circle>
+  <circle r="5" class="dot2" opacity="0.7">
+    <animateMotion dur="4s" begin="-0.4s" repeatCount="indefinite" rotate="auto"
+      path="M 320 295 C 320 145,500 145,600 295 C 700 445,880 445,880 295 C 880 145,700 145,600 295 C 500 445,320 445,320 295"/>
+  </circle>
+  <circle r="3" class="dot3" opacity="0.5">
+    <animateMotion dur="4s" begin="-0.7s" repeatCount="indefinite" rotate="auto"
+      path="M 320 295 C 320 145,500 145,600 295 C 700 445,880 445,880 295 C 880 145,700 145,600 295 C 500 445,320 445,320 295"/>
+  </circle>
+  <circle r="5" fill="#f472b6" filter="url(#glowSoft)" opacity="0.6">
+    <animateMotion dur="6s" begin="-2s" repeatCount="indefinite" rotate="auto"
+      path="M 880 295 C 880 445,700 445,600 295 C 500 145,320 145,320 295 C 320 445,500 445,600 295 C 700 145,880 145,880 295"/>
+  </circle>
+
+  <!-- DEV / OPS LABELS -->
+  <text x="450" y="285" text-anchor="middle" class="labelDEV" fill="white">DEV</text>
+  <text x="450" y="308" text-anchor="middle" class="sublabel" fill="#06b6d4">PLAN · BUILD · TEST</text>
+  <text x="750" y="285" text-anchor="middle" class="labelOPS" fill="white">OPS</text>
+  <text x="750" y="308" text-anchor="middle" class="sublabel" fill="#8b5cf6">DEPLOY · RUN · SCALE</text>
+
+  <!-- HEADER -->
+  <text x="600" y="40" text-anchor="middle" class="headline">∞ DEVOPS INFINITY LOOP</text>
+  <text x="600" y="60" text-anchor="middle" class="tagline">CONTINUOUS INTEGRATION &amp; CONTINUOUS DELIVERY</text>
+
+  <!-- CORNER BRACKETS -->
+  <path d="M 30 20 L 30 50 M 30 20 L 60 20"   class="corner" stroke="#06b6d4" stroke-opacity="0.5"/>
+  <path d="M 1170 20 L 1170 50 M 1170 20 L 1140 20" class="corner" stroke="#8b5cf6" stroke-opacity="0.5"/>
+  <path d="M 30 580 L 30 550 M 30 580 L 60 580"   class="corner" stroke="#06b6d4" stroke-opacity="0.5"/>
+  <path d="M 1170 580 L 1170 550 M 1170 580 L 1140 580" class="corner" stroke="#8b5cf6" stroke-opacity="0.5"/>
+
+  <!-- CARD — DOCKER (top-left) -->
+  <g class="cardFloat">
+    <rect x="18" y="90" width="160" height="160" rx="14"
+          fill="url(#cardDocker)" stroke="#06b6d4" stroke-width="0.7" stroke-opacity="0.5"/>
+    <circle cx="158" cy="102" r="4" class="statusOnline"/>
+    <text x="148" y="106" text-anchor="end" font-size="8" font-family="monospace" fill="#22c55e">LIVE</text>
+    <circle cx="98" cy="133" r="22" fill="#06b6d4" fill-opacity="0.12" stroke="#06b6d4" stroke-width="0.6"/>
+    <text x="98" y="141" text-anchor="middle" font-size="22">🐳</text>
+    <text x="98" y="168" text-anchor="middle" class="cardTitle" fill="#06b6d4">DOCKER</text>
+    <text x="98" y="181" text-anchor="middle" class="cardSub">Containerization</text>
+    <rect x="28" y="196" width="130" height="6" rx="3" fill="#0f172a"/>
+    <rect x="28" y="196" width="114" height="6" rx="3" class="barDocker"/>
+    <text x="98" y="215" text-anchor="middle" font-size="8" font-family="monospace" fill="#06b6d4">88%</text>
+  </g>
+
+  <!-- CARD — KUBERNETES (bottom-left) -->
+  <g class="cardFloat2">
+    <rect x="18" y="360" width="160" height="160" rx="14"
+          fill="url(#cardK8s)" stroke="#3b82f6" stroke-width="0.7" stroke-opacity="0.5"/>
+    <circle cx="158" cy="372" r="4" class="statusOnline"/>
+    <text x="148" y="376" text-anchor="end" font-size="8" font-family="monospace" fill="#22c55e">LIVE</text>
+    <circle cx="98" cy="403" r="22" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-width="0.6"/>
+    <text x="98" y="411" text-anchor="middle" font-size="22">⚙️</text>
+    <text x="98" y="438" text-anchor="middle" class="cardTitle" fill="#3b82f6">KUBERNETES</text>
+    <text x="98" y="451" text-anchor="middle" class="cardSub">Orchestration</text>
+    <rect x="28" y="466" width="130" height="6" rx="3" fill="#0f172a"/>
+    <rect x="28" y="466" width="99"  height="6" rx="3" class="barK8s"/>
+    <text x="98" y="485" text-anchor="middle" font-size="8" font-family="monospace" fill="#3b82f6">76%</text>
+  </g>
+
+  <!-- CARD — AWS (top-right) -->
+  <g class="cardFloat3">
+    <rect x="1022" y="90" width="160" height="160" rx="14"
+          fill="url(#cardAWS)" stroke="#f59e0b" stroke-width="0.7" stroke-opacity="0.5"/>
+    <circle cx="1028" cy="102" r="4" class="statusOnline"/>
+    <text x="1038" y="106" text-anchor="start" font-size="8" font-family="monospace" fill="#22c55e">LIVE</text>
+    <circle cx="1102" cy="133" r="22" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.6"/>
+    <text x="1102" y="141" text-anchor="middle" font-size="22">☁️</text>
+    <text x="1102" y="168" text-anchor="middle" class="cardTitle" fill="#f59e0b">AWS CLOUD</text>
+    <text x="1102" y="181" text-anchor="middle" class="cardSub">Infrastructure</text>
+    <rect x="1032" y="196" width="130" height="6" rx="3" fill="#0f172a"/>
+    <rect x="1032" y="196" width="124" height="6" rx="3" class="barAWS"/>
+    <text x="1102" y="215" text-anchor="middle" font-size="8" font-family="monospace" fill="#f59e0b">95%</text>
+  </g>
+
+  <!-- CARD — CI/CD (bottom-right) -->
+  <g class="cardFloat4">
+    <rect x="1022" y="360" width="160" height="160" rx="14"
+          fill="url(#cardCICD)" stroke="#8b5cf6" stroke-width="0.7" stroke-opacity="0.5"/>
+    <circle cx="1028" cy="372" r="4" class="statusWarn"/>
+    <text x="1038" y="376" text-anchor="start" font-size="8" font-family="monospace" fill="#f59e0b">SYNC</text>
+    <circle cx="1102" cy="403" r="22" fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-width="0.6"/>
+    <text x="1102" y="411" text-anchor="middle" font-size="22">🚀</text>
+    <text x="1102" y="438" text-anchor="middle" class="cardTitle" fill="#8b5cf6">CI / CD</text>
+    <text x="1102" y="451" text-anchor="middle" class="cardSub">Auto Pipeline</text>
+    <rect x="1032" y="466" width="130" height="6" rx="3" fill="#0f172a"/>
+    <rect x="1032" y="466" width="107" height="6" rx="3" class="barCICD"/>
+    <text x="1102" y="485" text-anchor="middle" font-size="8" font-family="monospace" fill="#8b5cf6">82%</text>
+  </g>
+
+  <!-- PIPELINE STATUS -->
+  <text x="600" y="494" text-anchor="middle" font-size="10" font-family="'Courier New', monospace"
+        fill="#475569" letter-spacing="4">── PIPELINE STATUS ──</text>
+
+  <rect x="349" y="505" width="72" height="28" rx="7" fill="#0f172a" stroke="#06b6d4" stroke-width="0.8" class="pipeStep pipeActive"/>
+  <text x="385" y="519" text-anchor="middle" dominant-baseline="central" class="pipeLabel" fill="#06b6d4">CODE</text>
+  <line x1="421" y1="519" x2="435" y2="519" class="pipeArrow" marker-end="url(#pipeHead)"/>
+
+  <rect x="435" y="505" width="72" height="28" rx="7" fill="#0f172a" stroke="#3b82f6" stroke-width="0.8" class="pipeStep pipeActive2"/>
+  <text x="471" y="519" text-anchor="middle" dominant-baseline="central" class="pipeLabel" fill="#3b82f6">BUILD</text>
+  <line x1="507" y1="519" x2="521" y2="519" class="pipeArrow" marker-end="url(#pipeHead)"/>
+
+  <rect x="521" y="505" width="72" height="28" rx="7" fill="#0f172a" stroke="#22c55e" stroke-width="0.8" class="pipeStep pipeActive3"/>
+  <text x="557" y="519" text-anchor="middle" dominant-baseline="central" class="pipeLabel" fill="#22c55e">TEST</text>
+  <line x1="593" y1="519" x2="607" y2="519" class="pipeArrow" marker-end="url(#pipeHead)"/>
+
+  <rect x="607" y="505" width="72" height="28" rx="7" fill="#0f172a" stroke="#f59e0b" stroke-width="0.8" class="pipeStep pipeActive4"/>
+  <text x="643" y="519" text-anchor="middle" dominant-baseline="central" class="pipeLabel" fill="#f59e0b">RELEASE</text>
+  <line x1="679" y1="519" x2="693" y2="519" class="pipeArrow" marker-end="url(#pipeHead)"/>
+
+  <rect x="693" y="505" width="72" height="28" rx="7" fill="#0f172a" stroke="#ec4899" stroke-width="0.8" class="pipeStep pipeActive5"/>
+  <text x="729" y="519" text-anchor="middle" dominant-baseline="central" class="pipeLabel" fill="#ec4899">DEPLOY</text>
+  <line x1="765" y1="519" x2="779" y2="519" class="pipeArrow" marker-end="url(#pipeHead)"/>
+
+  <rect x="779" y="505" width="72" height="28" rx="7" fill="#0f172a" stroke="#8b5cf6" stroke-width="0.8" class="pipeStep pipeActive6"/>
+  <text x="815" y="519" text-anchor="middle" dominant-baseline="central" class="pipeLabel" fill="#8b5cf6">MONITOR</text>
+
+  <!-- BOTTOM -->
+  <text x="600" y="570" text-anchor="middle" class="tagline">AUTOMATE  •  DEPLOY  •  SCALE  •  MONITOR  •  INNOVATE</text>
+  <text x="600" y="590" text-anchor="middle" font-size="8" font-family="'Courier New', monospace"
+        fill="#1e293b" letter-spacing="3">v2.0.0 · BUILD #1337 · ALL SYSTEMS OPERATIONAL</text>
+
+</svg>
