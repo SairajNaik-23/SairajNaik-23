@@ -82,7 +82,7 @@
 
 * ✉️ Email: sairajn508@gmail.com
 * 💼 LinkedIn: Sairaj Naik.
-* 🌐 Portfolio Site : [sairajnaik.online](https://sairajnaik.online/)
+* 🌐 Portfolio Site : https://sairajnaik.online/
 
 
 
